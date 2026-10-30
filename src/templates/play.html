@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Tic Tac Toe</title>
+        
+        <link rel="icon" type="plantilla-icon" href="static/assets/ABB-IRB-120-3-0-6-robot.ico" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="static/css/style.css">
+
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header
+            id="header"
+            class="container-fluid pb-1"
+            >
+            <nav class="navbar navbar-expand-sm navbar-light">
+                <div class="container-fluid" id="navbar-header">      
+                    <a class="navbar-brand" href="/">
+                        <img src="static/assets/ABB-IRB-120-3-0-6-robot.png" alt="">
+                    </a>              
+                    <button id="header-btn" type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div id="navbarCollapse" class="collapse navbar-collapse">
+                        <div class="navbar-nav">      
+                            <a class="nav-item nav-link" href="/">Home</a>
+                            <a class="nav-item nav-link" href="/configuration">Configuración</a>
+                            <a class="nav-item nav-link" href="/tutorial">Tutorial</a>
+                            <a class="nav-item nav-link" href="#footer">About</a>
+                        </div>
+                    </div>    
+                </div>
+            </nav>
+            <h1
+                id="header-title"
+                class="d-flex justify-content-center"
+                style="font-size: 400%; font-family: consolas; font-weight: bold; text-align: center;"
+                >            
+                Tic Tac Toe
+            </h1>
+            <hr class="hr" />
+        </header>
+        <!-- Header -->
+
+        <!-- Player Form -->
+        <div class="enter-players">
+            <form id="player-form">
+                <div
+                    id="player__container__1" 
+                    class="player-container"
+                >
+                    <input id="input__player1" name="player1" type="text" placeholder="nombre jugador 1" class="input-field"/>
+                </div>
+                <div
+                    id="player__container__2" 
+                    class="player-container"
+                >
+                    <input id="input__player2" name="player2" type="text" placeholder="nombre jugador 2" class="input-field"/>
+                </div>
+        
+                <input id="submit-btn" type="submit" class="submit-btn" value="Comenzar" />
+            </form>
+        </div>
+        <!-- Player Form -->
+
+        <!-- Game Board -->
+        <div 
+            id="board__container"
+            class="board__main hide-container"
+            >
+            <!-- Player Turn Container for Text -->
+            <div 
+                class="board___player-turn">
+            </div>  
+            <!-- Player Turn Container for Text -->
+
+            <!-- Board -->
+            <div 
+                class="board__container">
+                <div class="board__cell">
+                    <div class="letter" data-id="0"></div>
+                </div>
+                <div class="board__cell">
+                    <div class="letter" data-id="1"></div>
+                </div>
+                <div class="board__cell">
+                    <div class="letter" data-id="2"></div>
+                </div>
+        
+                <div class="board__cell">
+                    <div class="letter" data-id="3"></div>
+                </div>
+                <div class="board__cell">
+                    <div class="letter" data-id="4"></div>
+                </div>
+                <div class="board__cell">
+                    <div class="letter" data-id="5"></div>
+                </div>
+        
+                <div class="board__cell">
+                    <div class="letter" data-id="6"></div>
+                </div>
+                <div class="board__cell">
+                    <div class="letter" data-id="7"></div>
+                </div>
+                <div class="board__cell">
+                    <div class="letter" data-id="8"></div>
+                </div>
+            </div>
+            <!-- Board -->
+
+            <!-- Speech Recognition container -->
+            <div 
+                class="container-fluid"
+                style="width: 50%;"
+            >
+                <div
+                    id="speech__recognition__container"
+                    class="row p-3 d-flex justify-content-center" 
+                >
+                    <div 
+                        id="mic__container"
+                        class="col-md-2 d-sm-flex justify-content-center"
+                    >
+                        <button
+                            id="btn__mic__start"
+                            type="button"
+                            class="btn btn-default btn-floating"
+                        >
+                            <!-- <img src="static/assets/mic.png" width="50" height="50"> -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+                                <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
+                            </svg>
+                        </button>
+                        <button
+                            id="btn__mic__stop"
+                            type="button"
+                            class="btn btn-default btn-floating"
+                        >
+                            <!-- <img src="static/assets/mic-fill.png" width="50" height="50"> -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-mic-fill" viewBox="0 0 16 16">
+                                <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>
+                                <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                
+                    <div 
+                        id="transcribe__container"
+                        class="col-md-6 d-none d-lg-block"
+                    >
+                        <span id="final" class="text"></span>
+                        <span id="interim" class="text"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reset -->
+            <div 
+                class="reset reset--hidden pb-3">
+                <div class="reset__text"></div>
+                <button class="replay-btn" value="replay">
+                    <span class="clear-board" style="font-weight: bold;">Limpiar pantalla</span>
+                </button>
+            </div>
+            <!-- Reset  -->
+        </div>
+        <!-- Game Board -->
+
+        
+
+        <!-- Footer -->
+        <footer 
+            id="footer"
+            class="page-footer text-center text-lg-start text-muted"            
+        >
+            <!-- Links -->
+            <div 
+                id="footer-links"
+                class="container-fluid text-center text-md-start" 
+                >
+                <!-- Grid row -->
+                <div class="row d-flex justify-content-center">      
+
+                    <!-- Grid column -->
+                    <div class="col-sm-4 my-3">
+                        <!-- Links -->
+                        <div class="container-fluid d-flex justify-content-center">
+                            <a href="https://new.abb.com/es" target="_blank">
+                                ABB
+                            </a>
+                        </div>                                
+                    </div>
+            
+        
+                    <!-- Grid column -->
+                    
+        
+                    <!-- Grid column -->
+                    <div class="col-sm-4 my-3">
+                        <!-- Links -->
+                        <div class="container-fluid d-flex justify-content-center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Copyright -->
+            <div 
+                id="footer-copyright"
+                class="d-flex justify-content-center pt-4 pb-3" 
+                style="text-align: center;"
+                >
+                <p> 
+                    © 2022 Copyright <br> 
+                    Universidad de Alicante
+                </p>
+            </div>
+        </footer>
+        <!-- Footer -->
+
+        <!-- Scripts -->
+        <script src="static/js/speechRecognition.js"></script>
+        <script src="static/js/language.js"></script>
+        <script src="static/js/manager.js"></script>
+        <script src="static/js/connection.js"></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+            crossorigin="anonymous">
+        </script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+            crossorigin="anonymous">
+        </script>
+        <!-- Scripts -->
+    </body>
+</html>
