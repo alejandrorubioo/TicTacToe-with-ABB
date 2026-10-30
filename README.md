@@ -75,7 +75,7 @@ For the real robot, transfer the task to the controller and use its address in t
 src/app.py              Flask routes
 src/utils/              Game logic (player, tablero, threeinRow), TCP client
 src/templates, static/  Web interface and assets
-RAPID/                  RobotStudio Pack & Go station; Motion.mod and Com.mod as plain text
+RAPID/                  Motion.mod and Com.mod as plain text (the RobotStudio Pack & Go station is not included)
 TUTORIAL.md             User guide (Spanish)
 custom.py, logger.py    Exception type and path helper
 log/                    Runtime log folder
@@ -85,6 +85,6 @@ log/                    Runtime log folder
 
 Commit authors: [alejandrorubioo](https://github.com/alejandrorubioo), Ignacio Perez ([nachoperezzv](https://github.com/nachoperezzv)), Pablo Martínez Juan.
 
-Alejandro Rubio (alejandrorubioo) shared design, development and implementation on equal terms with the team.
+Team project; I worked across the whole implementation.
 
 All rights remain with the authors; a licence is pending.
